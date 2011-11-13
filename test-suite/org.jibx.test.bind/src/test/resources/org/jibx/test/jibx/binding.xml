@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<binding>
+    <!-- Adapted from the spring oxm tests - Thanks! -->
+    <mapping name="flights" class="org.jibx.test.Flights">
+        <namespace uri="http://test.jibx.org/flight" default="elements"/>
+        <collection field="flightList">
+            <structure map-as="org.jibx.test.FlightType"/>
+        </collection>
+    </mapping>
+    <mapping name="flight" class="org.jibx.test.FlightType">
+        <namespace uri="http://test.jibx.org/flight" default="elements"/>
+        <value name="number" field="number" usage="required"/>
+    </mapping>
+</binding>

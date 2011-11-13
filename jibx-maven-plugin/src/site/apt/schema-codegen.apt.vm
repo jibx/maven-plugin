@@ -1,0 +1,88 @@
+Generate Java Sources from Schemas
+
+* Java Sources from XSD Schemas
+
+	Here is a sample plugin section:
+
+---
+    <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>jibx-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+            <schemaLocation>src/main/conf</schemaLocation>
+            <includeSchemas>
+                <includeSchema>myschema.xsd</includeSchema>
+            </includeSchemas>
+            <options>
+                <package>my.package</package>
+            </options>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>schema-codegen</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+---
+
+
+Generate Java Sources from Schemas and Compile Binding
+
+* Java Sources from XSD Schemas
+
+    Here is below a sample usage:
+
+---
+    <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>jibx-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+            <execution>
+                <id>generate-java-code-from-schema</id>
+                <goals>
+                    <goal>schema-codegen</goal>
+                </goals>
+                <configuration>
+                    <schemaLocation>src/main/conf</schemaLocation>
+                    <includeSchemas>
+                        <includeSchema>myschema.xsd</includeSchema>
+                    </includeSchemas>
+                    <options>
+                        <package>my.package</package>
+                    </options>
+                </configuration>
+            </execution>
+            <execution>
+                <id>compile-binding</id>
+                <goals>
+                    <goal>bind</goal>
+                </goals>
+                <configuration>
+                    <schemaBindingDirectory>target/generated-sources</schemaBindingDirectory>
+                    <load>true</load>
+                    <validate>true</validate>
+                    <!--<verbose>true</verbose>-->
+                    <verify>true</verify>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+---
+
+* Supply a schema URL
+
+    Just replace the directory name with the schema, or include a list of schema URLs:
+
+---
+            <configuration>
+              <schemaLocation>http://www.jibx.org/sampleschema/</schemaLocation> <!-- Remember the trailing '/' -->
+              <includeSchemas>
+                <includeSchema>person.xsd</includeSchema>
+                <includeSchemas>company.xsd</includeSchema>
+              </includeSchemas>
+            </configuration>
+---

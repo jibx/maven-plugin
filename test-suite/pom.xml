@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jibx.config</groupId>
+    <artifactId>jibx-parent</artifactId>
+    <version>3-SNAPSHOT</version>
+    <relativePath>../../../jibx-parent</relativePath>
+  </parent>
+
+  <groupId>org.jibx.test</groupId>
+  <artifactId>test-suite-reactor</artifactId>
+  <version>1.2.4-SNAPSHOT</version>
+
+  <name>test-suite-reactor - Test cases</name>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+         <artifactId>maven-deploy-plugin</artifactId>
+         <configuration>
+	   <skip>true</skip>	<!-- Don't deploy the test suite -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>org.jibx.test.bind</module>
+    <module>org.jibx.test.genandbind</module>
+    <module>org.jibx.test.gen</module>
+    <module>org.jibx.test.comparedocs</module>
+    <module>org.jibx.test.jibx2wsdl</module>
+
+    <!-- module>org.jibx.test.gencompare</module --> <!-- Note that this project fails on build -->
+
+    <module>base-binding-test</module>
+    <module>web-schema-test</module>
+    <!-- module>simple-web-schema-test</module --> <!-- Note that this project fails on build -->
+  </modules>  
+
+</project>

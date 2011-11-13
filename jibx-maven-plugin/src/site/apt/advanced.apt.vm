@@ -1,0 +1,37 @@
+Advanced Binding Compilation
+
+* Profile based activation
+
+	If you don't want to execute the plugin on every Maven run you can define a profile for it.
+	The following example only executes the plugin if you run Maven with a <<<-Djibx=true>>> option.
+
+---
+  <profiles>
+    <profile>
+      <id>jibx</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>jibx</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-maven-plugin</artifactId>
+            <version>${project.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>bind</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+---

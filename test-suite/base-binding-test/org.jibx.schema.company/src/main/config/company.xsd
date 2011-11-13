@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        targetNamespace="http://www.jibx.org/sampleschema/company"
+        xmlns:address="http://www.jibx.org/sampleschema/address"
+        xmlns:tns="http://www.jibx.org/sampleschema/company">
+
+<xs:import namespace = "http://www.jibx.org/sampleschema/address" schemaLocation="http://www.jibx.org/sampleschema/address.xsd"/>
+
+<xs:element name="company">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="address:address"/>
+      <xs:element name="companyName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        targetNamespace="http://www.jibx.org/sampleschema/address"
+        xmlns:person="http://www.jibx.org/sampleschema/person"
+        xmlns:tns="http://www.jibx.org/sampleschema/address">
+
+<xs:import namespace = "http://www.jibx.org/sampleschema/person" schemaLocation="http://www.jibx.org/sampleschema/person.xsd"/>
+
+<xs:element name="address">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="person:person"/>
+      <xs:element name="street" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

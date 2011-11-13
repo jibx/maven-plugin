@@ -1,0 +1,113 @@
+Using JiBX with test cases
+
+* Generate code and bind schema in test cases with JiBX .
+  
+  The code generation module needs to be bound to the process-test-classes phase
+  and the binding module need to be bound to the process-test-classes phase.
+  
+  Remember to include the generated test sources in your test compiler source classpath.
+
+	Here is a sample pom.xml that runs the code generator and the binding compiler in the testing phase:
+	(Note the use of the build-helper-maven-plugin to add the generated sources to the classpath)
+	
+---
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.jibx.ota.osgi</groupId>
+    <artifactId>jibx-ota-test-gen</artifactId>
+    <version>${project.version}</version>
+    <packaging>jar</packaging>
+
+  <name>jibx-ota-test-gen (Gen and bind test case)</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+    
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>jibx-maven-plugin</artifactId>
+        <version>${project.version}</version>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+              <phase>generate-test-sources</phase>
+            <goals>
+              <goal>test-schema-codegen</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>compile-binding</id>
+            <phase>process-test-classes</phase>
+              <goals>
+                  <goal>test-bind</goal>
+              </goals>
+              <configuration>
+                  <directory>target/generated-test-sources</directory>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3</version>
+            <configuration>
+            <fork>true</fork>
+              <source>1.5</source>
+              <target>1.5</target>
+            </configuration>
+      </plugin>
+      
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>target/generated-test-sources</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-extras</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+---
+
+  Note the use of the build-helper-maven-plugin to add the generated-test-sources directory to the source path.

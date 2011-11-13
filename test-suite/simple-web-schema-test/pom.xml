@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jibx.test</groupId>
+    <artifactId>test-suite-reactor</artifactId>
+    <version>1.2.4-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.jibx.test.simplewebschema</groupId>
+  <artifactId>simple-web-schema-test</artifactId>
+
+  <packaging>pom</packaging>
+
+  <name>simple-web-schema-test-reactor</name>
+
+  <modules>
+    <module>org.jibx.schema.person</module>
+    <module>org.jibx.schema.address</module>
+    <module>org.jibx.schema.company</module>
+  </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-extras</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>  
+
+</project>

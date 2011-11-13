@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JiBX">
+    <bannerLeft>
+        <name>jibx-maven-plugin</name>
+        <href>http://jibx.sf.net/jibx-maven-plugin/</href>
+    </bannerLeft>
+    <bannerRight>
+        <src>http://sourceforge.net/sflogo.php?group_id=69358&amp;type=5</src>
+        <href>http://sourceforge.net/</href>
+    </bannerRight>
+    <body>
+        <links>
+            <item name="JiBX Home Page" href="../index.html"/>
+            <item name="SourceForge Page" href="http://www.sourceforge.net/projects/jibx/"/>
+            <item name="Mailing Lists" href="http://jibx.sourceforge.net/mail-lists.html"/>
+            <item name="Wiki" href="http://wiki.jibx.org/"/>
+            <item name="Bugs" href="http://jibx.sourceforge.net/bugs.html"/>
+            <item name="Downloads" href="http://sourceforge.net/project/showfiles.php?group_id=69358"/>
+        </links>
+        <menu name="Main Project">
+            <item name="JiBX" href="../index.html"/>
+        </menu>
+        <menu name="Overview">
+            <item name="Introduction" href="index.html"/>
+            <!-- item name="Goals" href="plugin-info.html"/ -->
+            <item name="Goals" href="index.html"/>
+            <item name="Usage" href="usage.html"/>
+        </menu>
+        <menu name="Configuration">
+            <item name="Execution Modes" href="modes.html"/>
+            <item name="Using Snapshots" href="snapshots.html"/>
+            <item name="Apache webservices" href="webservice.html"/>
+            <item name="Eclipse connector" href="m2e.html"/>
+        </menu>
+        <menu name="Examples">
+            <item name="Basic Binding Compilation" href="basic.html"/>
+            <item name="Advanced Binding Compilation" href="advanced.html"/>
+            <item name="Generate Java Sources from Schemas" href="schema-codegen.html"/>
+            <item name="Generate Modular Code from Schemas" href="modular-codegen.html"/>
+            <item name="Shared Gen and Bind Configuration" href="shared-config.html"/>
+            <item name="Test Case Usage" href="testing.html"/>
+            <item name="XML Document comparison" href="compare.html"/>
+        </menu>
+    
+        <menu ref="reports"/>
+        
+    </body>
+</project>

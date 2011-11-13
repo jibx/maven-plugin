@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jibx.test.examples</groupId>
+		<artifactId>maven-plugin-examples-reactor</artifactId>
+		<version>1.2.4-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>org.jibx.examples.cxf.ws</artifactId>
+	<packaging>bundle</packaging>
+
+	<name>JiBX CXF SE Bundle</name>
+	<description>JiBX CXF SE Bundle</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-databinding-jibx</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/jaxws</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/person.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-db</extraarg>
+										<extraarg>jibx</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Import-Package>
+                            javax.wsdl,
+                            javax.xml.bind,
+                            javax.xml.bind.annotation,
+                            javax.xml.namespace,
+                            javax.xml.soap,
+                            javax.xml.ws,
+                            META-INF.cxf,
+                            org.apache.cxf.bus,
+                            org.apache.cxf.bus.spring,
+                            org.apache.cxf.bus.resource,
+                            org.apache.cxf.configuration.spring,
+                            org.apache.cxf.resource,
+                            org.apache.servicemix.cxfse,
+                            org.springframework.beans.factory.config,
+                            *;resolution:=optional,
+                        </Import-Package>
+						<Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
+						<Export-Package>
+                            ${project.artifactId}.*;version=${project.version}
+                        </Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jibx</groupId>
+				<artifactId>jibx-maven-plugin</artifactId>
+				<version>1.2.3</version>
+				<inherited>true</inherited>
+
+				<executions>
+					<execution>
+						<id>compile-binding</id>
+						<goals>
+							<goal>bind</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLocation>src/main/resources</schemaLocation>
+					<schemaBindingDirectory>target/jaxws/jibx_bindings</schemaBindingDirectory>
+					<includeSchemaBindings>
+						<includeSchemaBinding>*.xml</includeSchemaBinding>
+					</includeSchemaBindings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

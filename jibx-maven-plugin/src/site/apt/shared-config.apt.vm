@@ -1,0 +1,81 @@
+Shared codegen and binding configuration
+
+* If you need to generate code and run the binding compiler with the new code,
+  you can use the same configuration for code-gen and binding. This example shows a
+  shared configuration for both goals.
+  
+  This example also shows how you can include a base binding from one of the project dependencies.
+
+	Here is an example from the schema library:
+	
+---
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jibx.schema.config</groupId>
+    <artifactId>schema-library-parent</artifactId>
+    <version>${project.version}</version>
+    <relativePath>../../schema-library-parent</relativePath>
+  </parent>
+
+  <groupId>org.jibx.schema.org.jibx</groupId>
+  <artifactId>org.jibx.schema.company</artifactId>
+  <packaging>bundle</packaging>
+
+  <name>schema-company</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>jibx-maven-plugin</artifactId>
+        <version>${project.version}</version>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+            <goals>
+              <goal>schema-codegen</goal>
+            </goals>
+          </execution>
+          <execution>
+              <id>compile-binding</id>
+              <goals>
+                  <goal>bind</goal>
+              </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <includeBaseBindings>
+            <includeBaseBinding>
+              <groupId>org.jibx.schema.org.jibx</groupId>
+              <artifactId>org.jibx.schema.address</artifactId>
+              <directory>META-INF</directory>
+              <includes>
+                <include>binding.xml</include>
+              </includes>
+            </includeBaseBinding>
+          </includeBaseBindings>
+          <options>
+            <package>org.jibx.schema.${project.artifactId}</package>
+          </options>
+          <schemaLocation>http://www.jibx.org/sampleschema/</schemaLocation>
+          <includeSchemas>
+            <includeSchema>company.xsd</includeSchema>
+          </includeSchemas>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx.schema.org.jibx</groupId>
+      <artifactId>org.jibx.schema.address</artifactId>
+      <version>1.2.4-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>
+---

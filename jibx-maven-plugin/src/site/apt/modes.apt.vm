@@ -1,0 +1,56 @@
+Modes
+
+	The plugin supports three different usage modes: {{{#Single-module mode}single-module}}, {{{#Multi-module mode}multi-module}} and {{{#Restricted multi-module mode}restricted multi-module}}.
+
+* {Single-module mode}
+
+	The single-module mode is the default.
+	
+	It searches for binding definition files in the current project and compiles them using the project's classpath.
+    
+* {Multi-module mode}
+
+	In its multi-module mode the plugin searches for binding definition files in the current and all referenced projects
+	and runs the binding compiler with an aggregated classpath.
+	
+	Just set the multi-module flag to <<<true>>>:
+
+---
+<configuration>
+  <multi-module>true</multi-module>
+</configuration>
+---
+
+	Note: See multi-module note below.
+
+* {Restricted multi-module mode}
+
+	The restricted multi-module mode is basically the same as above but does not include all referenced projects but only
+	those specified in the plugin's configuration.
+
+	The plugin automatically switches to its restricted multi-module mode if you specify a list
+	of modules in its configuration section. The multi-module flag is optional:
+
+---
+<configuration>
+  <modules>
+    <module>com.example:example1</module>
+    <module>com.example:example2</module>
+  </modules>
+</configuration>
+---
+
+	Note: When you specify multi-module mode, all of the modules must be included in the maven build.
+	
+	For example if the project in our example was structured as follows:
+
+---
+- parentModule
+  - example1
+  - example2
+  - multiModuleProject
+---
+	  
+	You must build the parentModule for the multiModuleProject to build correctly. If you build
+	the multiModuleProject by itself the build will not be able to find resources in the example1
+	and example2 projects. 

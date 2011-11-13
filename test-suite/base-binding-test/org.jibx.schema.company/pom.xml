@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jibx.test.basebinding</groupId>
+    <artifactId>base-binding-test</artifactId>
+    <version>1.2.4-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>org.jibx.schema.company</artifactId>
+  <packaging>bundle</packaging>
+
+  <name>schema-company</name>
+
+  <build>
+    <plugins> 
+     
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>maven-jibx-plugin</artifactId>
+	<version>1.2.4-SNAPSHOT</version>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+            <goals>
+              <goal>schema-codegen</goal>
+            </goals>
+              <configuration>
+                <includeBaseBindings>
+                  <includeBaseBinding>
+                    <directory>../org.jibx.schema.address/target/generated-sources</directory>
+                    <includes>
+                      <include>binding.xml</include>
+                    </includes>
+                  </includeBaseBinding>
+                </includeBaseBindings>
+                <includes>
+                  <include>company.xsd</include>
+                </includes>
+              </configuration>
+          </execution>
+          <execution>
+              <id>compile-binding</id>
+              <goals>
+                  <goal>bind</goal>
+              </goals>
+              <configuration>
+                 <directory>target/generated-sources</directory>
+                 <includes>
+                      <include>binding.xml</include>
+                 </includes>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx.test.basebinding</groupId>
+      <artifactId>org.jibx.schema.address</artifactId>
+      <version>1.2.4-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>

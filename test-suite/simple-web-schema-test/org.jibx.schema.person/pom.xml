@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jibx.test.simplewebschema</groupId>
+		<artifactId>simple-web-schema-test</artifactId>
+		<version>1.2.4-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>org.jibx.schema.person</artifactId>
+	<packaging>bundle</packaging>
+
+	<name>simple-web-schema-person</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jibx</groupId>
+				<artifactId>maven-jibx-plugin</artifactId>
+				<version>1.2.4-SNAPSHOT</version>
+
+				<executions>
+					<execution>
+						<id>generate-java-code-from-schema</id>
+						<goals>
+							<goal>schema-codegen</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>compile-binding</id>
+						<goals>
+							<goal>bind</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLocation>http://www.jibx.org/sampleschema/</schemaLocation>
+					<includeSchemas>
+						<includeSchema>person.xsd</includeSchema>
+					</includeSchemas>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Include-Resource>META-INF/binding.xml=${basedir}/target/generated-sources/binding.xml</Include-Resource>
+						<Export-Package>org.jibx.schema.${project.artifactId}.*;version=${project.version}</Export-Package>    <!-- Override jibxPackage or jibxPackageExport with actual packages -->
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

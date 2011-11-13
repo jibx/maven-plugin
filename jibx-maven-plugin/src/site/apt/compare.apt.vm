@@ -1,0 +1,199 @@
+Comparing XML documents using JiBX utilities
+
+* Compare two XML document with JiBX .
+  
+	Here is a sample pom.xml:
+	
+---
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>jibx-ota-test</artifactId>
+    <groupId>org.jibx.ota.osgi</groupId>
+    <version>${project.version}</version>
+  </parent>
+
+  <artifactId>jibx-ota-test-compare-docs</artifactId>
+  <name>jibx-ota-test-compare-docs (Compare two documents)</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+              <inFile>src/test/resources/data.xml</inFile>
+              <outFile>src/test/resources/data2.xml</outFile>
+          </configuration>
+          <executions>
+              <execution>
+                  <id>compare-jibx-docs</id>
+                  <phase>test</phase>
+                  <goals>
+                      <goal>document-compare</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${jibx-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-extras</artifactId>
+      <version>${jibx-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda-time-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+---
+
+  Note that the data.xml and data2.xml are the files being compared.
+
+* You can roundtrip an XML document through a JiBX class and compare it with the original document.
+  
+	Here is a sample pom.xml:	
+
+---
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>jibx-ota-test</artifactId>
+    <groupId>org.jibx.ota.osgi</groupId>
+    <version>${project.version}</version>
+  </parent>
+
+  <artifactId>jibx-ota-test-gen-compare</artifactId>
+  <name>jibx-ota-test-gen-compare (Roundtrip document and compare)</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+    
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>jibx-maven-plugin</artifactId>
+        <version>${project.version}</version>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+              <phase>generate-test-sources</phase>
+            <goals>
+              <goal>test-schema-codegen</goal>
+            </goals>
+          </execution>
+          <execution>
+              <id>compile-binding</id>
+            <phase>process-test-classes</phase>
+              <goals>
+                  <goal>test-bind</goal>
+              </goals>
+              <configuration>
+                  <directory>target/generated-test-sources</directory>
+              </configuration>
+          </execution>
+          <execution>
+              <id>compare-jibx-docs</id>
+              <phase>test</phase>
+              <goals>
+                  <goal>document-compare</goal>
+              </goals>
+              <configuration>
+                  <mappedClass>org.opentravel.ota.OTAAirLowFareSearchRQ</mappedClass>
+                  <inFile>src/test/resources/OTA_AirLowFareSearchRQ2.xml</inFile>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3</version>
+            <configuration>
+            <fork>true</fork>
+              <source>1.5</source>
+              <target>1.5</target>
+            </configuration>
+      </plugin>
+      
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/target/generated-test-sources</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-extras</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+---
+
+  This org.opentravel.ota.OTAAirLowFareSearchRQ is the class that the OTA_AirLowFareSearchRQ2.xml will be marshalled to
+  and unmarshalled before being compared with the original (OTA_AirLowFareSearchRQ2.xml) document.
+  
+  Note the use of the build-helper-maven-plugin to add the generated-test-sources directory to the source path.

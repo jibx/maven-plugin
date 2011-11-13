@@ -1,0 +1,59 @@
+Maven JiBX Plugin
+
+ The Maven 2 JiBX Plugin. This plugin runs the JiBX binding compiler, the JiBX source code
+ generator, and several other JiBX utilities.
+ 
+ Note: The JiBX plugin has been renamed jibx-maven-plugin to conform to maven plugin conventions.
+ The old plugin name (maven-jibx-plugin) is still supported.
+
+* Goals Overview
+
+   The JiBX Maven Plugin has these goals:
+
+   * {{{./bind-mojo.html}jibx:bind}} Runs the JiBX binding compiler.
+
+   * {{{./schema-codegen-mojo.html}jibx:schema-codegen}} Generates Java sources from XSD schemas.
+
+   * {{{./jibx2wsdl-mojo.html}jibx:jibx2wsdl}} Generates WSDL files from Java sources.
+
+   * {{{./test-bind-mojo.html}jibx:test-bind}} Runs the JiBX binding compiler on the test classes.
+
+   * {{{./test-schema-codegen-mojo.html}jibx:test-schema-codegen}} Generates Java test sources from XSD schemas.
+
+   * {{{./test-jibx2wsdl-mojo.html}jibx:test-jibx2wsdl}} Generates WSDL files from Java test sources.
+
+   * {{{./document-compare-mojo.html}jibx:document-compare}} Compares two schemas or roundtrips a schema through a JiBX class and compares the results.
+
+* Usage
+
+  General instructions on how to use the Maven JiBX Plugin can be found on the {{{./usage.html}usage page}}. Some more
+  specific use cases are described in the examples given below.
+
+* Configuration
+
+   The following instructions show how to use the JiBX maven plugin with external tools:
+
+   * {{{./snapshots.html}Using JiBX maven plugin snapshots in your project}}
+
+   * {{{./webservice.html}Using the JiBX maven plugin with Apache CXF and ServiceMix}}
+
+   * {{{./m2e.html}Installing the Eclipse (M2E) connector for the JiBX Maven Plugin}}
+
+* Examples
+
+   The following examples show how to use the Plugin in more advanced usecases:
+
+   * {{{./basic.html}Basic Binding Compilation}}
+
+   * {{{./advanced.html}Advanced Binding Compilation}}
+
+   * {{{./schema-codegen.html}Generate Java Sources from Schemas}}
+
+   * {{{./modular-codegen.html}Generate Modular Code from Schemas}}
+
+   * {{{./testing.html}JiBX code generation and binding in test cases}}
+
+   * {{{./compare.html}JiBX XML document comparison in test cases}}
+
+   * {{{./jibx2wsdl.html}JiBX to WSDL examples}}
+   

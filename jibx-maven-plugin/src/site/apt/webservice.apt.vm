@@ -1,0 +1,48 @@
+ -----
+ JiBX Maven Plug-in
+ -----
+ Don Corley
+ -----
+ July 10, 2011
+ -----
+
+Web service example
+
+ Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
+ 
+* Example
+
+ Step 1: Checkout the web service sample from our source repository. This example is very similar
+ to the cxf web service example.
+ 
++-----+
+ svn co https://jibx.svn.sourceforge.net/svnroot/jibx/trunk/plugins/maven-plugin/examples
+ cd examples
+ mvn clean install
++-----+
+
+ Step 2: Download {{{http://www.fusesource.com/}Apache servicemix (fusesource distribution)}} and start it running.
+ 
++-----+
+ bin/servicemix
++-----+
+
+ Step 3: Add the jibx repository and add the JiBX OSGi bundles.
+
++-----+
+ features:install obr
+ obr:addurl http://www.jibx.org/repository.xml
+ obr:deploy 'jibx-run - JiBX runtime'
++-----+
+
+ Step 4: Install the test bundle and run it.
+  
++-----+
+ install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.ws/1.2.4-SNAPSHOT
++-----+
+
+ Step 5: Download {{{http://www.soapui.org/}soapui}} or your favorite web service client and send a soap message.
+ You will find your wsdl here:
+ 
+ {{{http://localhost:8092/PersonService/?wsdl}http://localhost:8092/PersonService/?wsdl}}
+ 

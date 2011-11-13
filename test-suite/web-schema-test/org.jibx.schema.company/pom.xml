@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jibx.test.webschema</groupId>
+    <artifactId>web-schema-test</artifactId>
+    <version>1.2.4-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>org.jibx.schema.company</artifactId>
+  <packaging>bundle</packaging>
+
+  <name>webschema-company</name>
+
+  <build>
+    <plugins> 
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.3</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/generated-sources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>${basedir}/../org.jibx.schema.address/target/generated-sources</directory>
+                  <filtering>false</filtering>
+		  <includes>
+		    <include>address-binding.xml</include>
+		  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-person-resources</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/generated-sources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>${basedir}/../org.jibx.schema.person/target/generated-sources</directory>
+                  <filtering>false</filtering>
+		  <includes>
+		    <include>person-binding.xml</include>
+		  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+     
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>maven-jibx-plugin</artifactId>
+	<version>1.2.4-SNAPSHOT</version>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+            <goals>
+              <goal>schema-codegen</goal>
+            </goals>
+              <configuration>
+	         <options>
+		   <binding-file-name>company-binding.xml</binding-file-name>
+	         </options>
+                 <directory>http://www.jibx.org/sampleschema/</directory>
+                 <includes>
+                   <include>company.xsd</include>
+                 </includes>
+                <includeBaseBindings>
+                  <includeBaseBinding>
+		    <directory>./target/generated-sources</directory>
+		    <includes>
+		      <include>address-binding.xml</include>
+		    </includes>
+		  </includeBaseBinding>
+                </includeBaseBindings>
+              </configuration>
+          </execution>
+          <execution>
+              <id>compile-binding</id>
+              <goals>
+                  <goal>bind</goal>
+              </goals>
+              <configuration>
+                 <directory>target/generated-sources</directory>
+                 <includes>
+                      <include>company-binding.xml</include>
+                 </includes>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Include-Resource>META-INF/company-binding.xml=${basedir}/target/generated-sources/company-binding.xml</Include-Resource>
+            <Export-Package>org.jibx.schema.${project.artifactId}.*;version=${project.version}</Export-Package>    <!-- Override jibxPackage or jibxPackageExport with actual packages -->
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>org.jibx.schema.address</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+</project>

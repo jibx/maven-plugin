@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.jibx.m2e.feature_1.2.3.qualifier.jar" id="org.jibx.m2e.feature" version="1.2.3.qualifier"/>
+   <category-def name="org.jibx.m2e.category" label="JiBX m2e connector"/>
+</site>

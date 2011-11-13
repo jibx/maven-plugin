@@ -1,0 +1,125 @@
+Generate WSDL from Java classes.
+
+*  WSDL from Java classes
+
+	Here is a sample plugin section:
+
+---
+      <plugin>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <executions>
+              <execution>
+                  <id>jibx-2-wsdl</id>
+                  <phase>process-classes</phase>
+                  <goals>
+                      <goal>jibx2wsdl</goal>
+                  </goals>
+              </execution>
+          </executions>
+          <configuration>
+            <interfaceClassNames>
+              <interfaceClassName>com.sosnoski.ws.library.jibx2wsdl.BookServer1</interfaceClassName>
+            </interfaceClassNames>
+          </configuration>
+      </plugin>
+---
+
+    If you want to include your generated wsdl files in your distribution (jar) file,
+    the easiest way is to change the output directory in your configuration section:
+    
+---
+          <configuration>
+            <interfaceClassNames>
+              <interfaceClassName>com.sosnoski.ws.library.jibx2wsdl.BookServer1</interfaceClassName>
+            </interfaceClassNames>
+            <outputDirectory>${project.build.directory}/classes/META-INF/schema</outputDirectory>
+          </configuration>
+---
+    
+    Here the complete pom file used in the jibx test suite:
+    
+---
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>jibx-ota-test</artifactId>
+    <groupId>org.jibx.ota.test</groupId>
+    <version>${project.version}</version>
+  </parent>
+
+  <artifactId>jibx-ota-test-jibx2wsdl</artifactId>
+  <name>jibx-ota-test-jibx2wsdl</name>
+
+  <packaging>jar</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <executions>
+              <execution>
+                  <id>jibx-2-wsdl</id>
+                  <phase>process-classes</phase>
+                  <goals>
+                      <goal>jibx2wsdl</goal>
+                  </goals>
+              </execution>
+          </executions>
+          <configuration>
+            <interfaceClassNames>
+              <interfaceClassName>com.sosnoski.ws.library.jibx2wsdl.BookServer1</interfaceClassName>
+            </interfaceClassNames>
+            <outputDirectory>${project.build.directory}/classes/META-INF/schema</outputDirectory>
+          </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+      <dependency>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-run</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-tools</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-bind</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-extras</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.jibx</groupId>
+          <artifactId>jibx-schema</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+      </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+---

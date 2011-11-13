@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:typens="http://jibx.org/examples/cxf/ws/types"
+         targetNamespace="http://jibx.org/examples/cxf/ws/types"
+                    elementFormDefault="qualified">
+            <xsd:element name="GetPerson">
+              <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="personId" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetPersonResponse">
+              <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="personId" type="xsd:string"/>
+                        <xsd:element name="ssn" type="xsd:string"/>
+                        <xsd:element name="name" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>

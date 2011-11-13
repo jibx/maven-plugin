@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>test-suite-reactor</artifactId>
+    <groupId>org.jibx.test</groupId>
+    <version>1.2.4-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>org.jibx.test.comparedocs</artifactId>
+  <name>org.jibx.test.comparedocs - Compare two documents</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.jibx</groupId>
+          <artifactId>maven-jibx-plugin</artifactId>
+	  <version>${project.version}</version>
+
+          <configuration>
+              <inFile>src/test/resources/data.xml</inFile>
+              <outFile>src/test/resources/data2.xml</outFile>
+          </configuration>
+          <executions>
+              <execution>
+                  <id>compare-jibx-docs</id>
+                  <phase>test</phase>
+                  <goals>
+                      <goal>document-compare</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${jibx-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-extras</artifactId>
+      <version>${jibx-version}</version>
+    </dependency>
+    <dependency>  <!-- Why isn't this a jibx dependency? -->
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda-time-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

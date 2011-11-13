@@ -1,0 +1,92 @@
+Usage
+
+    If you've never used a Maven plugin before please take a look at Maven's
+    {{{http://maven.apache.org/guides/getting-started/#How do I use plug-ins?}Getting Started Guide}}.
+
+	To use the plugin in your project you have to add it to the plugins section of your POM.
+
+---
+<plugin>
+  <groupId>org.jibx</groupId>
+  <artifactId>jibx-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>bind</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+---
+
+	The project also needs to include jibx-run and optionally jibx-extras in its dependencies.
+
+---
+<dependency>
+  <groupId>org.jibx</groupId>
+  <artifactId>jibx-run</artifactId>
+  <version>${project.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.jibx</groupId>
+  <artifactId>jibx-extras</artifactId>
+  <version>${project.version}</version>
+</dependency>
+---
+
+* Configuration
+
+	The plugin supports the following configuration options.
+
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| <<option>>                | <<default>>     | <<description>>                                                                                         |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| schemaBindingDirectory    | src/main/config | In which directory to search for binding definitions.                                                   |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| includeschemaBindings     | binding.xml     | Which files in the configuration directory to include as binding definitions.                           |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| excludeschemaBindings     | <none>          | Which files in the configuration directory that will be matched by one the include patterns to exclude. |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| multi-module              | false           | Control flag to enable multi-module mode. (See {{modes.html#Multi-module mode}})                        |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| modules                   | <none>          | Which modules to include in multi-module mode. (See {{modes.html#Restricted multi-module mode}})        |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| load                      | false           | Control flag for test loading generated/modified classes.                                               |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| validate                  | true            | Control flag for binding definition validation.                                                         |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| verbose                   | false           | Control flag for verbose processing reports.                                                            |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+| verify                    | false           | Control flag for verifying generated/modified classes with BCEL.                                        |
+*--------------+-----------------+----------------------------------------------------------------------------------------------------------------------+
+
+* Example
+
+	This example would include all files ending in <<<-binding.xml>>> except <<<template-binding.xml>>> in the <<<src/main/jibx>>>
+	directory and output verbose messages during binding compilation:
+	
+---
+<plugin>
+  <groupId>org.jibx</groupId>
+  <artifactId>jibx-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <configuration>
+    <schemaBindingDirectory>src/main/jibx</schemaBindingDirectory>
+    <includeSchemaBindings>
+      <includeSchemaBindings>*-binding.xml</includeSchemaBindings>
+    </includeSchemaBindings>
+    <excludeSchemaBindings>
+      <excludeSchemaBinding>template-binding.xml</excludeSchemaBinding>
+    </excludeSchemaBindings>
+    <verbose>true</verbose>
+  </configuration>
+  <executions>
+    <execution>
+      <goals>
+        <goal>bind</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+---
