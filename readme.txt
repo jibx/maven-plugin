@@ -1,1 +1,1 @@
-jibx-maven-plugin - The maven plugin for JiBX.
+jibx-maven-plugin - The maven plugin for JiBX
