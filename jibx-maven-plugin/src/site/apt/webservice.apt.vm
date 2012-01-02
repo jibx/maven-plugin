@@ -16,8 +16,8 @@ Web service example
  to the cxf web service example.
  
 +-----+
- svn co https://jibx.svn.sourceforge.net/svnroot/jibx/trunk/plugins/maven-plugin/examples
- cd examples
+ git clone git@github.com:jibx/schema-library.git
+ cd schema-library/schema-utilities/examples/android/jibxapp/opentravel-webservice
  mvn clean install
 +-----+
 
