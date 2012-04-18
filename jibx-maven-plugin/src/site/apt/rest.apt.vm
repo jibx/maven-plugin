@@ -6,18 +6,18 @@
  July 10, 2011
  -----
 
-Web service example
+RESTful JiBX web service example
 
  Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
  
 * Example
 
  Step 1: Checkout the web service sample from our source repository. This example is very similar
- to the cxf web service example.
+ to the cxf REST web service example.
  
 +-----+
  git clone git@github.com:jibx/maven-plugin.git
- cd maven-plugin/examples/opentravel-cxfse-bundle
+ cd maven-plugin/examples/cxf-jaxrs
  mvn clean install
 +-----+
 
@@ -30,19 +30,22 @@ Web service example
  Step 3: Add the jibx repository and add the JiBX OSGi bundles.
 
 +-----+
- features:install obr
- obr:addurl http://www.jibx.org/repository.xml
- obr:deploy 'jibx-run - JiBX runtime'
+  install mvn:org.jibx/jibx-run/${project.version}
+  install mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs/${project.version}
+  
+  Note: There is a bug in karaf, so you will have to restart the server to get this working:
+  (ctrl-d)
+  bin/(your karaf server name)
+  start xxx  (where xxx is the pid number of cxf-jaxrs)
 +-----+
 
  Step 4: Install the test bundle and run it.
   
 +-----+
- install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.ws/${project.version}
+ install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs/${project.version}
 +-----+
 
- Step 5: Download {{{http://www.soapui.org/}soapui}} or your favorite web service client and send a soap message.
- You will find your wsdl here:
+ Step 5: Startup your browser and click on this link
  
  {{{http://localhost:8092/PersonService/?wsdl}http://localhost:8092/PersonService/?wsdl}}
  

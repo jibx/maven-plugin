@@ -1,0 +1,4 @@
+<Customer xmlns="http://www.jibx.org/customer">
+  <id>123</id>
+    <name>Mary</name>
+</Customer> 

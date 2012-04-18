@@ -12,6 +12,7 @@
 
     <modules>
         <module>opentravel-cxfse-bundle</module>
+        <module>cxf-jaxrs</module>
     </modules>
 
     <repositories>
@@ -176,8 +177,8 @@
         <xfire.version>1.0.1</xfire.version>
         <xbean.version>3.7</xbean.version>
         <xmlschema.version>2.0</xmlschema.version>
-    <cxf.version>2.4.1</cxf.version>
-    <servicemix.nmr.version>1.4.0</servicemix.nmr.version>
+	<cxf.version>2.4.1</cxf.version>
+	<servicemix.nmr.version>1.4.0</servicemix.nmr.version>
     </properties>
 
     <dependencyManagement>

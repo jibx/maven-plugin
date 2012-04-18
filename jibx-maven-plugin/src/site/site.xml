@@ -30,6 +30,7 @@
             <item name="Execution Modes" href="modes.html"/>
             <item name="Using Snapshots" href="snapshots.html"/>
             <item name="Apache webservices" href="webservice.html"/>
+            <item name="RESTful JiBX" href="rest.html"/>
             <item name="Android project" href="android.html"/>
             <item name="Eclipse connector" href="m2e.html"/>
         </menu>

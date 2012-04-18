@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+    Much of this example is based on the apache cxf-jaxrs project. Thanks!
+    -->
+
+    <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+	<groupId>org.jibx.test.examples</groupId>
+	<artifactId>maven-plugin-examples-reactor</artifactId>
+	<version>1.2.4-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>org.jibx.examples.cxf.rs</artifactId>
+    <packaging>bundle</packaging>
+    <name>JiBX RESTful example</name>
+    <description>JiBX Example using JAX-RS</description>
+
+    <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	    <version>${cxf.version}</version>
+	</dependency>
+    <dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+	    <version>${cxf.version}</version>
+    </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-jibx</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+    </dependencies>  
+
+    
+    <build>
+        <plugins>
+      <plugin>
+        <groupId>org.jibx</groupId>
+        <artifactId>maven-jibx-plugin</artifactId>
+        <version>${project.version}</version>
+        <inherited>true</inherited>
+
+        <executions>
+          <execution>
+            <id>generate-java-code-from-schema</id>
+            <goals>
+              <goal>schema-codegen</goal>
+            </goals>
+          </execution>
+          <execution>
+              <id>compile-binding</id>
+              <goals>
+                  <goal>bind</goal>
+              </goals>
+              <configuration>
+                 <directory>target/generated-sources</directory>
+                 <includes>
+                   <include>binding.xml</include>
+                 </includes>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+            
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Description>${project.description}</Bundle-Description>
+                        <Import-Package>
+                            javax.wsdl,
+                            javax.xml.bind,
+                            javax.xml.bind.annotation,
+                            javax.xml.namespace,
+                            org.apache.cxf.jaxb,
+                            javax.ws.rs,
+                            META-INF.cxf,
+                            META-INF.cxf.osgi,
+                            org.apache.cxf.bus,
+                            org.apache.cxf.bus.spring,
+                            org.apache.cxf.bus.resource,
+                            org.apache.cxf.resource,
+                            org.apache.cxf.configuration.spring,
+                            org.apache.cxf.binding,
+                            org.apache.cxf.transport.http,
+                            org.springframework.beans.factory.config,
+                            org.apache.commons.httpclient,
+                            org.apache.commons.httpclient.methods,
+                            javax.xml.stream,
+                            org.apache.cxf.databinding,
+                            org.jibx.jaxrs,
+                            org.apache.cxf.jibx,
+	                        *;resolution:=optional,
+                        </Import-Package>
+                        <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
+                        <Export-Package>org.jibx.jaxrs,
+                            org.jibx.customer,
+                        </Export-Package>
+                        <DynamicImport-Package>javax.ws.rs.*,
+                            org.jibx.*,
+                        </DynamicImport-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
