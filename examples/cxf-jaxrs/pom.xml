@@ -85,35 +85,15 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Description>${project.description}</Bundle-Description>
                         <Import-Package>
-                            javax.wsdl,
-                            javax.xml.bind,
-                            javax.xml.bind.annotation,
-                            javax.xml.namespace,
-                            org.apache.cxf.jaxb,
-                            javax.ws.rs,
-                            META-INF.cxf,
-                            META-INF.cxf.osgi,
-                            org.apache.cxf.bus,
-                            org.apache.cxf.bus.spring,
-                            org.apache.cxf.bus.resource,
-                            org.apache.cxf.resource,
-                            org.apache.cxf.configuration.spring,
-                            org.apache.cxf.binding,
-                            org.apache.cxf.transport.http,
-                            org.springframework.beans.factory.config,
-                            org.apache.commons.httpclient,
-                            org.apache.commons.httpclient.methods,
-                            javax.xml.stream,
-                            org.apache.cxf.databinding,
-                            org.jibx.jaxrs,
-                            org.apache.cxf.jibx,
 	                        *;resolution:=optional,
                         </Import-Package>
                         <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
-                        <Export-Package>org.jibx.jaxrs,
+                        <Export-Package>
+                            org.jibx.jaxrs,
                             org.jibx.customer,
                         </Export-Package>
-                        <DynamicImport-Package>javax.ws.rs.*,
+                        <DynamicImport-Package>
+                            javax.ws.rs.*,
                             org.jibx.*,
                         </DynamicImport-Package>
                     </instructions>
