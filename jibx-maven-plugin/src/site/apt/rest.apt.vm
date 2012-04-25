@@ -12,7 +12,7 @@ RESTful JiBX web service example
  
 * Example
 
- Step 1: Checkout the web service sample from our source repository. This example is very similar
+ Step 1: Checkout the web service sample from {{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs{here}}} in our source repository. This example is very similar
  to the cxf REST web service example.
  
 +-----+
@@ -47,5 +47,5 @@ RESTful JiBX web service example
 
  Step 5: Startup your browser and click on this link
  
- {{{http://localhost:8092/PersonService/?wsdl}http://localhost:8092/PersonService/?wsdl}}
+ {{{http://localhost:8181/cxf/crm/customerservice/customers/123}http://localhost:8181/cxf/crm/customerservice/customers/123}}
  
