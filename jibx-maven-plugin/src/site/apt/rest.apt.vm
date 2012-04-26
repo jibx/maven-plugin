@@ -10,24 +10,18 @@ RESTful JiBX web service example
 
  Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
  
-* Example
-
- Step 1: Checkout the web service sample from {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs}here}} in our source repository. This example is very similar
- to the cxf REST web service example.
+ You can find this web service sample {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs}here}} in our source repository. This example is very similar
+ to the cxf REST web service example in the servicemix distribution.
  
-+-----+
- git clone git@github.com:jibx/maven-plugin.git
- cd maven-plugin/examples/cxf-jaxrs
- mvn clean install
-+-----+
+* Running this example
 
- Step 2: Download {{{http://www.fusesource.com/}Apache servicemix (fusesource distribution)}} and start it running.
+ Step 1: Download {{{http://servicemix.apache.org/}Apache servicemix}} and start it running.
  
 +-----+
  bin/servicemix
 +-----+
 
- Step 3: Add the jibx repository and add the JiBX OSGi bundles.
+ Step 2: Install the bundles and start the example running.
 
 +-----+
   install mvn:org.jibx/jibx-run/${project.version}
