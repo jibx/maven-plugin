@@ -10,36 +10,41 @@ RESTful JiBX web service example
 
  Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
  
- You can find this web service sample {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs}here}} in our source repository. This example is very similar
+ This example is a simple JAX-RS (RESTful service) example using a JiBX bindings (and dataconnector).
+ 
+ You can find this web service sample {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs}here}}
+ in our source repository. This example is very similar
  to the cxf REST web service example in the servicemix distribution.
  
 * Running this example
 
- Step 1: Download {{{http://servicemix.apache.org/}Apache servicemix}} and start it running.
+ Step 1 build this example
+ 
++-----+
+ git clone git@github.com:jibx/maven-plugin.git
+ cd maven-plugin/examples/cxf-jaxrs
+ mvn install
++-----+
+
+ Step 2: Download {{{http://servicemix.apache.org/}Apache servicemix}} and start it running.
  
 +-----+
  bin/servicemix
 +-----+
 
- Step 2: Install the bundles and start the example running.
+ Step 3: Install the bundles and start the example running.
 
 +-----+
   install mvn:org.jibx/jibx-run/${project.version}
-  install mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs/${project.version}
+  install mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs
   
   Note: There is a bug in karaf, so you will have to restart the server to get this working:
   (ctrl-d)
-  bin/(your karaf server name)
+  bin/servicemix
   start xxx  (where xxx is the pid number of cxf-jaxrs)
 +-----+
 
- Step 4: Install the test bundle and run it.
-  
-+-----+
- install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs/${project.version}
-+-----+
-
- Step 5: Startup your browser and click on this link
+ Step 4: Startup your browser and click on this link
  
  {{{http://localhost:8181/cxf/crm/customerservice/customers/123}http://localhost:8181/cxf/crm/customerservice/customers/123}}
  

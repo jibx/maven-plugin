@@ -17,8 +17,6 @@ Running the Example
 
   <servicemix_home>/bin/servicemix          (on UNIX)
   <servicemix_home>\bin\servicemix          (on Windows)
-  
-
 
 Running a Client
 ----------------
