@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.jibx.test.webschema</groupId>
 		<artifactId>web-schema-test</artifactId>
-		<version>1.2.5-SNAPSHOT</version>
+		<version>1.2.4-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.jibx.schema.address</artifactId>
@@ -43,7 +43,7 @@
 			<plugin>
 				<groupId>org.jibx</groupId>
 				<artifactId>maven-jibx-plugin</artifactId>
-				<version>1.2.5-SNAPSHOT</version>
+				<version>1.2.4-SNAPSHOT</version>
 
 				<executions>
 					<execution>
@@ -102,12 +102,12 @@
 		<dependency>
 			<groupId>org.jibx</groupId>
 			<artifactId>jibx-run</artifactId>
-			<version>1.2.5-SNAPSHOT</version>
+			<version>1.2.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jibx</groupId>
 			<artifactId>jibx-extras</artifactId>
-			<version>1.2.5-SNAPSHOT</version>
+			<version>1.2.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
