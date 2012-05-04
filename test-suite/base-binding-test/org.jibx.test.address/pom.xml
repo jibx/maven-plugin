@@ -51,7 +51,7 @@
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-run</artifactId>
-      <version>1.2.4-SNAPSHOT</version>
+      <version>1.2.5-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -63,7 +63,7 @@
     <dependency>
         <groupId>org.jibx.schema.org.jibx</groupId>
         <artifactId>org.jibx.schema.address</artifactId>
-        <version>1.2.4-SNAPSHOT</version>
+        <version>1.2.5-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

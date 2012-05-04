@@ -56,12 +56,12 @@
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-tools</artifactId>
-          <version>1.2.4-SNAPSHOT</version>
+          <version>1.2.5-SNAPSHOT</version>
       </dependency>
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-bind</artifactId>
-          <version>1.2.4-SNAPSHOT</version>
+          <version>1.2.5-SNAPSHOT</version>
       </dependency>
       <dependency>
           <groupId>${project.groupId}</groupId>
