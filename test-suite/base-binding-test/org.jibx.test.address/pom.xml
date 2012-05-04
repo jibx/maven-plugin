@@ -5,12 +5,13 @@
   <parent>
     <groupId>org.jibx.config</groupId>
     <artifactId>jibx-parent</artifactId>
-    <version>3-SNAPSHOT</version>
+    <version>4-SNAPSHOT</version>
     <relativePath>../../../jibx-parent</relativePath>
   </parent>
 
   <groupId>org.jibx.schema.org.jibx.test</groupId>
   <artifactId>org.jibx.schema.test.address</artifactId>
+  <version>1.2.5-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>test-address</name>
