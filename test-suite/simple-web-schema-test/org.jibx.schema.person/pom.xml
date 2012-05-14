@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.jibx.test.simplewebschema</groupId>
 		<artifactId>simple-web-schema-test</artifactId>
-		<version>1.2.5-SNAPSHOT</version>
+		<version>1.2.4.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.jibx.schema.person</artifactId>
@@ -18,7 +18,7 @@
 			<plugin>
 				<groupId>org.jibx</groupId>
 				<artifactId>maven-jibx-plugin</artifactId>
-				<version>1.2.5-SNAPSHOT</version>
+				<version>1.2.4.1-SNAPSHOT</version>
 
 				<executions>
 					<execution>

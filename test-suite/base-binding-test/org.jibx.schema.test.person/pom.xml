@@ -6,15 +6,34 @@
     <groupId>org.jibx.config</groupId>
     <artifactId>jibx-parent</artifactId>
     <version>4-SNAPSHOT</version>
-    <relativePath>../../../jibx-parent</relativePath>
+    <relativePath>../../../jibx-parent</relativePath -->
   </parent>
 
   <groupId>org.jibx.schema.org.jibx.test</groupId>
-  <artifactId>org.jibx.schema.test.address</artifactId>
-  <version>1.2.5-SNAPSHOT</version>
+  <artifactId>org.jibx.schema.test.person</artifactId>
+  <version>1.2.4.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>test-address</name>
+  <name>test-person</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
+      <version>1.2.4.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+    </dependency>
+
+    <dependency>
+    	<groupId>org.jibx.test.basebinding</groupId>
+    	<artifactId>org.jibx.schema.person</artifactId>
+    	<version>1.2.4.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -24,7 +43,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-Activator>org.jibx.schema.test.address.AddressTest</Bundle-Activator>
+            <Bundle-Activator>org.jibx.schema.test.person.PersonTest</Bundle-Activator>
           </instructions>
         </configuration>
       </plugin>
@@ -41,30 +60,10 @@
           </execution>
         </executions>
         <configuration>
-            <mainClass>org.jibx.schema.test.address.AddressTest</mainClass>
+            <mainClass>org.jibx.schema.test.person.PersonTest</mainClass>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.jibx</groupId>
-      <artifactId>jibx-run</artifactId>
-      <version>1.2.5-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
-      <scope>provided</scope> <!-- This better be provided -->
-    </dependency>
-
-    <dependency>
-        <groupId>org.jibx.schema.org.jibx</groupId>
-        <artifactId>org.jibx.schema.address</artifactId>
-        <version>1.2.5-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
 
 </project>

@@ -16,7 +16,7 @@
   </parent>
 
   <groupId>org.jibx</groupId>
-  <version>1.2.5-SNAPSHOT</version>
+  <version>1.2.4.1-SNAPSHOT</version>
   <artifactId>jibx-maven-m2e</artifactId>
   <packaging>pom</packaging>
 
