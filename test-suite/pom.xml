@@ -11,7 +11,7 @@
 
   <groupId>org.jibx.test</groupId>
   <artifactId>test-suite-reactor</artifactId>
-  <version>1.2.4.2-SNAPSHOT</version>
+  <version>1.2.4.2</version>
 
   <name>test-suite-reactor - Test cases</name>
   <packaging>pom</packaging>

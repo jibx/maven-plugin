@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.jibx.test.basebinding</groupId>
     <artifactId>base-binding-test</artifactId>
-    <version>1.2.4.2-SNAPSHOT</version>
+    <version>1.2.4.2</version>
   </parent>
 
   <artifactId>org.jibx.schema.address</artifactId>
@@ -17,7 +17,7 @@
       <plugin>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-	<version>1.2.4.2-SNAPSHOT</version>
+	<version>1.2.4.2</version>
 
         <executions>
           <execution>
@@ -60,17 +60,17 @@
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-run</artifactId>
-      <version>1.2.4.2-SNAPSHOT</version>
+      <version>1.2.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-extras</artifactId>
-      <version>1.2.4.2-SNAPSHOT</version>
+      <version>1.2.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.jibx.test.basebinding</groupId>
       <artifactId>org.jibx.schema.person</artifactId>
-      <version>1.2.4.2-SNAPSHOT</version>
+      <version>1.2.4.2</version>
     </dependency>
   </dependencies>
 </project>

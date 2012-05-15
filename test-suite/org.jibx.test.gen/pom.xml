@@ -4,7 +4,7 @@
   <parent>
     <artifactId>test-suite-reactor</artifactId>
     <groupId>org.jibx.test</groupId>
-    <version>1.2.4.2-SNAPSHOT</version>
+    <version>1.2.4.2</version>
   </parent>
 
   <artifactId>org.jibx.test.gen</artifactId>
@@ -77,12 +77,12 @@
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-run</artifactId>
-      <version>1.2.4.2-SNAPSHOT</version>
+      <version>1.2.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-extras</artifactId>
-      <version>1.2.4.2-SNAPSHOT</version>
+      <version>1.2.4.2</version>
     </dependency>
 
     <dependency>
