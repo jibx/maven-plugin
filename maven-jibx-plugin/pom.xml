@@ -56,22 +56,18 @@
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-tools</artifactId>
-          <version>1.2.4.5-SNAPSHOT</version>
       </dependency>
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-bind</artifactId>
-          <version>1.2.4.5-SNAPSHOT</version>
       </dependency>
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-extras</artifactId>
-          <version>1.2.4.5-SNAPSHOT</version>
       </dependency>
       <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>jibx-run</artifactId>
-          <version>1.2.4.5-SNAPSHOT</version>
       </dependency>
 
       <dependency>
