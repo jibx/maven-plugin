@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.jibx.config</groupId>
     <artifactId>jibx-parent</artifactId>
-    <version>5</version>
+    <version>4.3</version>
     <relativePath>../../../jibx-parent</relativePath -->
   </parent>
 
   <groupId>org.jibx.schema.org.jibx.test</groupId>
   <artifactId>org.jibx.schema.test.person</artifactId>
-  <version>1.2.5-SNAPSHOT</version>
+  <version>1.2.4.3-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>test-person</name>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-run</artifactId>
-      <version>1.2.5-SNAPSHOT</version>
+      <version>1.2.4.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -31,7 +31,7 @@
     <dependency>
     	<groupId>org.jibx.test.basebinding</groupId>
     	<artifactId>org.jibx.schema.person</artifactId>
-    	<version>1.2.5-SNAPSHOT</version>
+    	<version>1.2.4.3-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
