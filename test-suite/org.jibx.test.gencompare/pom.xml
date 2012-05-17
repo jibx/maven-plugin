@@ -5,7 +5,7 @@
   <parent>
     <artifactId>test-suite-reactor</artifactId>
     <groupId>org.jibx.test</groupId>
-    <version>1.2.4.5-SNAPSHOT</version>
+    <version>1.2.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.jibx.test.gencompare</artifactId>
