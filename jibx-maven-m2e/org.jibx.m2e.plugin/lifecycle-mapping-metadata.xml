@@ -5,7 +5,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>schema-codegen</goal>
         </goals>
@@ -20,7 +20,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>bind</goal>
         </goals>
@@ -35,7 +35,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>jibx2wsdl</goal>
         </goals>
@@ -50,7 +50,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-bind</goal>
         </goals>
@@ -65,7 +65,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-schema-codegen</goal>
         </goals>
@@ -80,7 +80,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-jibx2wsdl</goal>
         </goals>
@@ -95,7 +95,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>jibx-maven-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>document-compare</goal>
         </goals>
@@ -110,7 +110,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>schema-codegen</goal>
         </goals>
@@ -125,7 +125,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>bind</goal>
         </goals>
@@ -140,7 +140,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>jibx2wsdl</goal>
         </goals>
@@ -155,7 +155,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-bind</goal>
         </goals>
@@ -170,7 +170,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-schema-codegen</goal>
         </goals>
@@ -185,7 +185,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>test-jibx2wsdl</goal>
         </goals>
@@ -200,7 +200,7 @@
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <versionRange>[1.2.3,)</versionRange>
+        <versionRange>[1.2.4,)</versionRange>
         <goals>
           <goal>document-compare</goal>
         </goals>
