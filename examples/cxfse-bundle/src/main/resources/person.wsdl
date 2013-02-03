@@ -44,7 +44,7 @@
     </wsdl:message>
 
     <wsdl:portType name="Person">
-        <wsdl:operation name="GetPerson">
+        <wsdl:operation name="GetPersonOperation">
             <wsdl:input message="tns:GetPersonRequest"/>
             <wsdl:output message="tns:GetPersonResponse"/>
         </wsdl:operation>
@@ -52,7 +52,7 @@
     
     <wsdl:binding name="PersonSOAPBinding" type="tns:Person">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
-        <wsdl:operation name="GetPerson">
+        <wsdl:operation name="GetPersonOperation">
             <wsdl:input>
                 <soap:body use="literal" />
             </wsdl:input>

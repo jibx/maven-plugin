@@ -20,7 +20,7 @@
         <ref component-id="customerSvc"/>
       </jaxrs:serviceBeans>
       <jaxrs:dataBinding>
-          <bean class="org.jibx.databinding.MyJibxDataBinding" />
+          <bean class="org.apache.cxf.jibx.JibxDataBinding" />
       </jaxrs:dataBinding>
     </jaxrs:server>
 

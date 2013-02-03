@@ -23,7 +23,7 @@ import org.jibx.examples.cxf.ws.types.*;
 @WebService(serviceName = "PersonService", targetNamespace = "http://jibx.org/examples/cxf/ws", endpointInterface = "org.jibx.examples.cxf.ws.Person")
 public class PersonImpl implements Person {
 
-	public GetPersonResponse getPerson(GetPerson person) {
+	public GetPersonResponse getPersonOperation(GetPerson person) {
         if (person.getPersonId() == null || person.getPersonId().length() == 0) {
 
         }

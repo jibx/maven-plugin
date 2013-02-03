@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.jibx.test.examples</groupId>
 		<artifactId>maven-plugin-examples-reactor</artifactId>
-		<version>1.2.4.3-SNAPSHOT</version>
+		<version>1.2.4.5-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.jibx.examples.cxf.ws</artifactId>
@@ -20,17 +20,18 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>${cxf.version}</version>
+			<version>${cxf-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+			<version>${geronimo-ws-metadata-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-databinding-jibx</artifactId>
-			<version>2.4.1</version>
+			<version>${cxf-version}</version>
 		</dependency>
 	</dependencies>
 
@@ -54,11 +55,7 @@
 							<wsdlOptions>
 								<wsdlOption>
 									<wsdl>${basedir}/src/main/resources/person.wsdl</wsdl>
-									<extraargs>
-										<extraarg>-verbose</extraarg>
-										<extraarg>-db</extraarg>
-										<extraarg>jibx</extraarg>
-									</extraargs>
+									<dataBinding>jibx</dataBinding>
 								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
@@ -74,27 +71,9 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Import-Package>
-                            javax.wsdl,
-                            javax.xml.bind,
-                            javax.xml.bind.annotation,
-                            javax.xml.namespace,
-                            javax.xml.soap,
-                            javax.xml.ws,
-                            META-INF.cxf,
-                            org.apache.cxf.bus,
-                            org.apache.cxf.bus.spring,
-                            org.apache.cxf.bus.resource,
-                            org.apache.cxf.configuration.spring,
-                            org.apache.cxf.resource,
-                            org.apache.servicemix.cxfse,
-                            org.springframework.beans.factory.config,
-                            *;resolution:=optional,
-                        </Import-Package>
+						<Import-Package>*;resolution:=optional</Import-Package>
 						<Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
-						<Export-Package>
-                            ${project.artifactId}.*;version=${project.version}
-                        </Export-Package>
+						<Export-Package>${project.artifactId}.*;version=${project.version}</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -102,7 +81,7 @@
 			<plugin>
 				<groupId>org.jibx</groupId>
 				<artifactId>jibx-maven-plugin</artifactId>
-				<version>1.2.3</version>
+				<version>1.2.4.5</version>
 				<inherited>true</inherited>
 
 				<executions>

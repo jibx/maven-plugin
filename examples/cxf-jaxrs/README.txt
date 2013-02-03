@@ -29,7 +29,7 @@ or
 
 http://localhost:8181/cxf/crm?_wadl&_type=xml
 
-The latter URI can be used to see the desription of multiple root
+The latter URI can be used to see the description of multiple root
 resource classes.
 
 You can see the services listing at http://localhost:8181/cxf.
