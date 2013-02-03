@@ -5,7 +5,7 @@
 
     <groupId>org.jibx.test.examples</groupId>
     <artifactId>maven-plugin-examples-reactor</artifactId>
-    <version>1.2.4.6-SNAPSHOT</version>
+    <version>1.2.4.5-SNAPSHOT</version>
 
     <name>JiBX CXF WSDL First OSGi Package</name>
     <packaging>pom</packaging>
