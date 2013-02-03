@@ -30,7 +30,7 @@ RESTful JiBX web service example
  Step 2: Add cxf and start it.
 
 +-----+
-karaf@root> features:addurl mvn:org.apache.cxf.karaf/apache-cxf/2.7.3/xml/features
+karaf@root> features:addurl mvn:org.apache.cxf.karaf/apache-cxf/${cxf-version}/xml/features
 karaf@root> features:install cxf cxf-databinding-jibx http
 +-----+
 
