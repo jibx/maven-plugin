@@ -3,48 +3,46 @@
  -----
  Don Corley
  -----
- July 10, 2011
+ February 1, 2013
  -----
 
 RESTful JiBX web service example
 
- Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
+ Instructions on building and running a JiBX web service example using {{{http://cxf.apache.org}Apache CXF}}.
  
- This example is a simple JAX-RS (RESTful service) example using a JiBX bindings (and dataconnector).
+ This example is a simple JAX-RS (RESTful service) example using JiBX bindings.
  
  You can find this web service sample {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxf-jaxrs}here}}
  in our source repository. This example is very similar
- to the cxf REST web service example in the servicemix distribution.
+ to the CXF REST web service example in the servicemix distribution.
+ 
+ This example is very simple. You send a RESTful request either as a URL or post and XML request.
+ The service returns an XML reply.
  
 * Running this example
 
- Step 1 build this example
+ Step 1: Download {{{http://karaf.apache.org}Apache karaf}} and fire it up.
  
 +-----+
- git clone git@github.com:jibx/maven-plugin.git
- cd maven-plugin/examples/cxf-jaxrs
- mvn install
+ bin/karaf
 +-----+
 
- Step 2: Download {{{http://servicemix.apache.org/}Apache servicemix}} and start it running.
- 
-+-----+
- bin/servicemix
-+-----+
-
- Step 3: Install the bundles and start the example running.
+ Step 2: Add cxf and start it.
 
 +-----+
-  install mvn:org.jibx/jibx-run/${project.version}
-  install mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs
+karaf@root> features:addurl mvn:org.apache.cxf.karaf/apache-cxf/2.7.3/xml/features
+karaf@root> features:install cxf cxf-databinding-jibx http
++-----+
+
+ Step 3: Install the test JiBX REST web service and run it.
   
-  Note: There is a bug in karaf, so you will have to restart the server to get this working:
-  (ctrl-d)
-  bin/servicemix
-  start xxx  (where xxx is the pid number of cxf-jaxrs)
++-----+
+ install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.rs
 +-----+
 
  Step 4: Startup your browser and click on this link
  
  {{{http://localhost:8181/cxf/crm/customerservice/customers/123}http://localhost:8181/cxf/crm/customerservice/customers/123}}
+ 
+ Your browser will return an XML representation of this customer.
  

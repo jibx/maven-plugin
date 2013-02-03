@@ -3,45 +3,39 @@
  -----
  Don Corley
  -----
- July 10, 2011
+ February 1, 2013
  -----
 
 Web service example
 
- Instructions on building and running a JiBX web service example using Apache CXF and Apache ServiceMix.
+ Instructions on building and running a JiBX web service example using {{{http://cxf.apache.org}Apache CXF}}.
  
 * Example
 
- Step 1: Checkout the web service sample from our source repository. This example is very similar
- to the cxf web service example.
+ This example is located {{{https://github.com/jibx/maven-plugin/tree/master/examples/cxfse-bundle}here is our repository}}.
+ This is a basic wsdl-first CXF SOAP example using JiBX databinding. The configuration is very simple. Include the
+ jibx databinding flag in your cxf-codegen-plugin and add the jibx databinding class to your blueprint.xml (or spring bean.xml if you prefer).
+
+ Step 1: Download {{{http://karaf.apache.org}Apache karaf}} and fire it up.
  
 +-----+
- git clone git@github.com:jibx/maven-plugin.git
- cd maven-plugin/examples/opentravel-cxfse-bundle
- mvn clean install
+ bin/karaf
 +-----+
 
- Step 2: Download {{{http://www.fusesource.com/}Apache servicemix (fusesource distribution)}} and start it running.
- 
-+-----+
- bin/servicemix
-+-----+
-
- Step 3: Add the jibx repository and add the JiBX OSGi bundles.
+ Step 2: Add cxf and start it.
 
 +-----+
- features:install obr
- obr:addurl http://www.jibx.org/repository.xml
- obr:deploy 'jibx-run - JiBX runtime'
+karaf@root> features:addurl mvn:org.apache.cxf.karaf/apache-cxf/2.7.3/xml/features
+karaf@root> features:install cxf cxf-databinding-jibx http
 +-----+
 
- Step 4: Install the test bundle and run it.
+ Step 3: Install the test JiBX SOAP web service and run it.
   
 +-----+
- install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.ws/${project.version}
+ install -s mvn:org.jibx.test.examples/org.jibx.examples.cxf.ws
 +-----+
 
- Step 5: Download {{{http://www.soapui.org/}soapui}} or your favorite web service client and send a soap message.
+ Step 4: Download {{{http://www.soapui.org/}soapui}} or your favorite web service client and send a soap message.
  You will find your wsdl here:
  
  {{{http://localhost:8092/PersonService/?wsdl}http://localhost:8092/PersonService/?wsdl}}
