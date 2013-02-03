@@ -16,7 +16,7 @@ RESTful JiBX web service example
  in our source repository. This example is very similar
  to the CXF REST web service example in the servicemix distribution.
  
- This example is very simple. You send a RESTful request either as a URL or post and XML request.
+ This example is very simple. You send a RESTful request either as a URL or you can post an XML request.
  The service returns an XML reply.
  
 * Running this example
