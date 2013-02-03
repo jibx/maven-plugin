@@ -9,8 +9,8 @@
     <relativePath>../../jibx-parent</relativePath>
   </parent>
 
-  <artifactId>maven-plugin-reactor</artifactId>
-  <version>1.2.5-SNAPSHOT</version>
+  <artifactId>maven-plugin-reactor2</artifactId>
+  <version>1.2.4.5-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <name>maven-plugin-reactor - Maven plugin top-level project</name>
@@ -23,9 +23,10 @@
   </scm>
 
   <modules>
-    <module>maven-jibx-plugin</module>
+    <!-- module>maven-jibx-plugin</module>
     <module>jibx-maven-plugin</module>
-    <module>test-suite</module>
+    <module>test-suite</module -->
+    <module>examples</module>
   </modules>
 
 </project>
