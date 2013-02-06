@@ -19,6 +19,7 @@
         </links>
         <menu name="Main Project">
             <item name="JiBX" href="../index.html"/>
+            <item name="Schema library" href="../schema-library/index.html"/>
         </menu>
         <menu name="Overview">
             <item name="Introduction" href="index.html"/>

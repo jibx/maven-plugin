@@ -57,3 +57,9 @@ Maven JiBX Plugin
 
    * {{{./jibx2wsdl.html}JiBX to WSDL examples}}
    
+* Schema Library
+
+   JiBX contains a library of pre-build schema. Your schema may already exist. If your schema is not in
+   the schema library, you should consider adding it.
+
+   * {{{../schema-library/index.html}Schema library}}
