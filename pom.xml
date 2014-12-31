@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>maven-plugin-reactor</artifactId>
-  <version>1.2.7-SNAPSHOT</version>
+  <version>1.2.6-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <name>maven-plugin-reactor - Maven plugin top-level project</name>
