@@ -201,6 +201,9 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns the basedir of the given project.
+     *
+     * @param project Project
+     * @return basedir of the given project
      */
     protected String getProjectBasedir(MavenProject project) {
         return FilenameUtils.normalize(project.getBasedir().getAbsolutePath());
@@ -231,6 +234,13 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
     
     /**
      * Returns all bindings in the given directory according to the configured include/exclude patterns.
+     *
+     * @param excludeFiles Files to exclude
+     * @param includeFiles Files to include
+     * @param path Path
+     * @return List of included files
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     protected List<String> getIncludedFiles(String path, ArrayList<String> includeFiles, ArrayList<String> excludeFiles) throws MojoExecutionException, MojoFailureException {
         List<String> bindingSet = new ArrayList<String>();
@@ -329,6 +339,8 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns all bindings in the given directory according to the configured include/exclude patterns.
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     List<String> getBindings(String path) throws MojoExecutionException, MojoFailureException {
         return this.getIncludedFiles(path, this.includeSchemaBindings, this.excludeSchemaBindings);
@@ -336,6 +348,8 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns all binding in the current project and all referenced projects (multi-module mode)
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     String[] getMultiModuleBindings() throws MojoExecutionException, MojoFailureException {
         Set<String> basedirSet = getProjectBasedirSet(this.project);
@@ -356,6 +370,8 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns the classpath for the binding compiler running in multi-module mode.
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     String[] getMultiModuleClasspaths() throws MojoExecutionException, MojoFailureException {
         Set<String> classpathSet = getProjectCompileClasspathElementsSet(this.project);
@@ -386,12 +402,16 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
      * Returns the build output directory of the given project.
      *
      * @throws  MojoExecutionException  if DependencyResolutionRequiredException occurs
+     * @param project Project
+     * @return Output directory
      */
     protected abstract Set<String> getProjectCompileClasspathElements(MavenProject project) throws MojoExecutionException;
 
     /**
      * Returns the build output directory of the given project and all its reference projects.
      *
+     * @param project Project
+     * @return Output directory
      * @throws  MojoExecutionException  if DependencyResolutionRequiredException occurs
      */
     @SuppressWarnings("unchecked")
@@ -408,6 +428,9 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns all bindings in the current project (single-module mode).
+     * @return bindings
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     String[] getSingleModuleBindings() throws MojoExecutionException, MojoFailureException {
         String bindingdir = getFullPath(getSchemaBindingDirectory());
@@ -418,6 +441,10 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Returns the classpath for the binding compiler running in single-module mode.
+
+     * @return classpaths
+     * @throws MojoExecutionException error
+     * @throws MojoFailureException error
      */
     String[] getSingleModuleClasspaths() throws MojoExecutionException, MojoFailureException {
         Set<String> classpathSet = getProjectCompileClasspathElements(this.project);
@@ -428,9 +455,7 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
     /**
      * Get the binding path name for a includeBaseBinding binding.
      * This method actually unjars the binding file(s) from dependent resources.
-     * @param basedir
-     * @param includeBinding
-     * @return
+     * @return bindings
      */
 	public String[] getBaseBindings(String[] bindings)
 	{
@@ -455,9 +480,9 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 	}
 	/**
 	 * Add bindings on the filesystem.
-	 * @param includeDependentBinding
-	 * @param bindingSet
-	 * @return
+	 * @param includeDependentBinding dependent binding
+	 * @param bindingSet List of bindings
+	 * @return bindings
 	 */
 	public List<String> addManualDependentBinding(IncludeBaseBinding includeDependentBinding, List<String> bindingSet)
 	{
@@ -525,9 +550,9 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 	}
 	/**
 	 * Add bindings that are containted in artifacts.
-	 * @param includeDependentBinding
-	 * @param bindingSet
-	 * @return
+     * @param includeDependentBinding dependent binding
+     * @param bindingSet List of bindings
+     * @return bindings
 	 */
 	public List<String> addDependentBinding(IncludeBaseBinding includeDependentBinding, List<String> bindingSet)
 	{
@@ -603,13 +628,13 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
     }
 	/**
 	 * Extract the base binding file(s) from the dependent artifacts.
-	 * @param pathList
-	 * @param zip
-	 * @param directory
-	 * @param groupId
-	 * @param artifactId
-	 * @param filePathInJar
-	 * @return
+	 * @param pathList pathList
+	 * @param zip zip
+	 * @param directory directory
+	 * @param groupId group
+	 * @param artifactId artifact
+	 * @param filePathInJar file path
+	 * @return bindings
 	 */
 	public List<String> extractBaseBindingFile(List<String> pathList, ZipFile zip, String directory, String groupId, String artifactId, String filePathInJar)
 	{
@@ -709,8 +734,8 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
 
     /**
      * Fix this directory path so it starts at the root project dir.
-     * @param dir
-     * @return
+     * @param dir directory
+     * @return file path
      */
     public String getFullPath(String dir)
     {
@@ -727,8 +752,9 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
     }
     /**
      * Fix this directory path so it starts at the root project dir.
-     * @param dir
-     * @return
+     * @param prePath path
+     * @param postPath post path
+     * @return complete path
      */
     public String addToPath(String prePath, String postPath)
     {
