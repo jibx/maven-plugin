@@ -455,6 +455,7 @@ public abstract class AbstractJibxMojo extends AbstractMojo {
     /**
      * Get the binding path name for a includeBaseBinding binding.
      * This method actually unjars the binding file(s) from dependent resources.
+     * @param bindings Bindings
      * @return bindings
      */
 	public String[] getBaseBindings(String[] bindings)

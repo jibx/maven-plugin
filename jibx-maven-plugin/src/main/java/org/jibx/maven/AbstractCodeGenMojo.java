@@ -276,9 +276,9 @@ public abstract class AbstractCodeGenMojo extends AbstractJibxMojo {
     }
     /**
      * Get the binding path name for a single module binding.
-     * @param basedir
-     * @param includeBinding
-     * @return
+     * @param basedir Basedir
+     * @param includeBinding Include bindings
+     * @return Path
      */
 	public String getSingleModuleBindingPath(String basedir, String includeBinding)
 	{
