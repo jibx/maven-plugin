@@ -9,13 +9,29 @@
   </parent>
 
   <groupId>org.jibx</groupId>
-  <artifactId>jibx-maven-plugin</artifactId>
+  <artifactId>maven-jibx-plugin</artifactId>
 
   <packaging>maven-plugin</packaging>
   <name>Maven JiBX Plugin</name>
 
-  <url>http://jibx.sf.net/jibx-maven-plugin/</url>
+  <url>http://jibx.sf.net/maven-jibx-plugin/</url>
   <description>A plugin for Maven 2 to run the JiBX binding compiler, or generate Java sources from XSD schemas.</description>
+
+  <build>
+    <!-- Use the source and documentation from maven-jibx-plugin -->
+    <sourceDirectory>../jibx-maven-plugin/src/main/java</sourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0-beta-3</version>
+        <configuration>
+          <siteDirectory>../jibx-maven-plugin/src/site</siteDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
   <developers>
       <developer>
@@ -95,7 +111,7 @@
   <distributionManagement>
       <site>
           <id>sourceforge.net</id>
-          <url>scp://shell.sourceforge.net/home/project-web/jibx/htdocs/jibx-maven-plugin</url>
+          <url>scp://shell.sourceforge.net/home/project-web/jibx/htdocs/maven-jibx-plugin</url>
       </site>
   </distributionManagement>
   <issueManagement>
@@ -112,14 +128,4 @@
       </plugins>
   </reporting>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.6</version>
-      </plugin>
-    </plugins>
-  </build>
-  
 </project>
