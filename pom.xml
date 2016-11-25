@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>maven-plugin-reactor</artifactId>
-  <version>1.3.1</version>
+  <version>1.3.2-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <name>maven-plugin-reactor - Maven plugin top-level project</name>
@@ -20,7 +20,7 @@
     <url>https://github.com/jibx/maven-plugin</url>
     <connection>scm:git:https://github.com/jibx/maven-plugin</connection>
     <developerConnection>scm:git:https://github.com/jibx/maven-plugin</developerConnection>
-    <tag>maven-plugin-reactor-1.3.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
