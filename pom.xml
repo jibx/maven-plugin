@@ -23,7 +23,6 @@
   </scm>
 
   <modules>
-    <module>maven-jibx-plugin</module>
     <module>jibx-maven-plugin</module>
     <module>test-suite</module>
     <module>examples</module>
