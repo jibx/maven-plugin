@@ -10,7 +10,7 @@
    <parent>
 	<groupId>org.jibx.test.examples</groupId>
 	<artifactId>maven-plugin-examples-reactor</artifactId>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>1.3.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>org.jibx.examples.cxf.rs</artifactId>
@@ -47,7 +47,7 @@
       <plugin>
         <groupId>org.jibx</groupId>
         <artifactId>maven-jibx-plugin</artifactId>
-        <version>1.3.0-SNAPSHOT</version>	<!-- So this project will build as an example -->
+        <version>1.3.1</version>	<!-- So this project will build as an example -->
         <inherited>true</inherited>
 
         <executions>
