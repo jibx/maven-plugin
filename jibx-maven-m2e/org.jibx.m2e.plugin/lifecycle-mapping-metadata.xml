@@ -109,7 +109,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>schema-codegen</goal>
@@ -124,7 +124,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>bind</goal>
@@ -139,7 +139,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>jibx2wsdl</goal>
@@ -154,7 +154,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>test-bind</goal>
@@ -169,7 +169,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>test-schema-codegen</goal>
@@ -184,7 +184,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>test-jibx2wsdl</goal>
@@ -199,7 +199,7 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
         <versionRange>[1.2.5,)</versionRange>
         <goals>
           <goal>document-compare</goal>

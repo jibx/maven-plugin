@@ -17,7 +17,7 @@
     
       <plugin>
         <groupId>org.jibx</groupId>
-        <artifactId>maven-jibx-plugin</artifactId>
+        <artifactId>jibx-maven-plugin</artifactId>
 	<version>${project.version}</version>
 
         <executions>

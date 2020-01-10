@@ -4,7 +4,7 @@ Maven JiBX Plugin
  generator, and several other JiBX utilities.
  
  Note: The JiBX plugin has been renamed jibx-maven-plugin to conform to maven plugin conventions.
- The old plugin name (maven-jibx-plugin) is still supported.
+ The old plugin name (jibx-maven-plugin) is still supported.
 
 * Goals Overview
 

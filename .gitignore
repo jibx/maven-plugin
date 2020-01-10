@@ -7,5 +7,6 @@ target
 .metadata
 *.releaseBackup
 release.properties
+
 *.iml
 .idea
