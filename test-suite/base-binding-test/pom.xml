@@ -22,6 +22,7 @@
     <module>org.jibx.schema.person</module>
     <module>org.jibx.schema.address</module>
     <module>org.jibx.schema.company</module>
+    <!-- module>org.jibx.schema.test.person</module -->
   </modules>
 
   <dependencies>
