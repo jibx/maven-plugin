@@ -11,7 +11,7 @@
 
   <groupId>org.jibx.test</groupId>
   <artifactId>test-suite-reactor</artifactId>
-  <version>1.3.2</version>
+  <version>1.3.3-SNAPSHOT</version>
 
   <name>test-suite-reactor - Test cases</name>
   <packaging>pom</packaging>
@@ -39,10 +39,5 @@
     <module>base-binding-test</module>
     <module>web-schema-test</module>
     <!-- module>simple-web-schema-test</module --> <!-- Note that this project fails on build -->
-  </modules>  
-
-
-  <scm>
-    <tag>maven-plugin-reactor-1.3.2</tag>
-  </scm>
+  </modules>
 </project>
