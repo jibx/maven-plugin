@@ -16,6 +16,10 @@
   <name>maven-plugin-reactor - Maven plugin top-level project</name>
   <description>Maven JiBX plugin top-level project</description>
 
+  <properties>
+    <projectName>jibx-maven-plugin</projectName>
+  </properties>
+
   <scm>
     <url>https://github.com/jibx/maven-plugin</url>
     <connection>scm:git:https://github.com/jibx/maven-plugin</connection>
