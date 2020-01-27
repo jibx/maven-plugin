@@ -22,20 +22,20 @@
     <module>org.jibx.schema.person</module>
     <module>org.jibx.schema.address</module>
     <module>org.jibx.schema.company</module>
-    <!-- module>org.jibx.schema.test.person</module -->
+    <module>org.jibx.schema.test.person</module>
   </modules>
 
   <dependencies>
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-run</artifactId>
-      <version>1.3.1</version>
+      <version>1.3.3</version>
     </dependency>
     <dependency>
       <groupId>org.jibx</groupId>
       <artifactId>jibx-extras</artifactId>
-      <version>1.3.1</version>
+      <version>1.3.3</version>
     </dependency>
-  </dependencies>  
+  </dependencies>
 
 </project>

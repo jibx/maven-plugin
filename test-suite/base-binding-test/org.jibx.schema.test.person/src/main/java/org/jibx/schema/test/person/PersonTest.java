@@ -14,8 +14,6 @@ import org.jibx.sampleschema.person.Person;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import org.jibx.schema.codegen.*;
-
 /**
  * Unit test for simple App.
  */
