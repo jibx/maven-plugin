@@ -74,7 +74,7 @@
 	         <options>
 		   <binding-file-name>company-binding.xml</binding-file-name>
 	         </options>
-                 <directory>http://www.jibx.org/sampleschema/</directory>
+                 <directory>https://jibx.sourceforge.io/sampleschema/</directory>
                  <includes>
                    <include>company.xsd</include>
                  </includes>

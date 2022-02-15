@@ -55,7 +55,7 @@
 							<options>
 								<binding-file-name>address-binding.xml</binding-file-name>
 							</options>
-							<directory>http://www.jibx.org/sampleschema/</directory>
+							<directory>https://jibx.sourceforge.io/sampleschema/</directory>
 							<includes>
 								<include>address.xsd</include>
 							</includes>
