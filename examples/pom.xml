@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cxfse-bundle</module>
+        <!-- module>cxfse-bundle</module -->
         <module>cxf-jaxrs</module>
     </modules>
 
