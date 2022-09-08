@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>maven-plugin-reactor</artifactId>
-  <version>1.4.2-SNAPSHOT</version>
+  <version>1.4.2</version>
 
   <packaging>pom</packaging>
   <name>maven-plugin-reactor - Maven plugin top-level project</name>
@@ -24,7 +24,7 @@
     <url>https://github.com/jibx/maven-plugin</url>
     <connection>scm:git:https://github.com/jibx/maven-plugin</connection>
     <developerConnection>scm:git:https://github.com/jibx/maven-plugin</developerConnection>
-    <tag>HEAD</tag>
+    <tag>maven-plugin-reactor-1.4.2</tag>
   </scm>
 
   <modules>
