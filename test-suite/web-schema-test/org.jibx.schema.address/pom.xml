@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.jibx.test.webschema</groupId>
 		<artifactId>web-schema-test</artifactId>
-		<version>1.4.3-SNAPSHOT</version>
+		<version>1.4.4-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.jibx.schema.address</artifactId>

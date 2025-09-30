@@ -4,7 +4,7 @@
   <parent>
     <artifactId>test-suite-reactor</artifactId>
     <groupId>org.jibx.test</groupId>
-    <version>1.4.3-SNAPSHOT</version>
+    <version>1.4.4-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.jibx.test.comparedocs</artifactId>
